@@ -50,21 +50,23 @@ function generateColor() {
                 <div style="background:  #${colors3};" class="color">
                     <div class="color-text">#${colors3}</div>
                 </div>
-                <div style="background:  #${colors4};" class="color">
-                    <div class="color-text">#${colors4}</div>
-                </div>
     `
 colorBContainer.appendChild(nodeContainer)
+    const colorText = document.querySelectorAll(".color")
+    const colorRText = document.querySelectorAll(".color-text")
+    for (let i = 0; i < colorText.length; i++) {
+        colorText[i].addEventListener("click", () => {
+            navigator.clipboard.writeText(colorRText[i].textContent);   
+            colorText[i].classList.add("copied")
+            setTimeout(() => {
+                colorText[i].classList.remove("copied")
+            }, 1000);        
+        })
+    }
     closeModal()
-
-
 }
 
 generateBtn.addEventListener("click", ()=> {
     generateColor();
 })
 
-const colorText = document.querySelector(".color")
-colorText.addEventListener("click", () => {
-    console.log("asdsad");
-})
