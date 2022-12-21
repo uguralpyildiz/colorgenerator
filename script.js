@@ -68,6 +68,7 @@ function generateColor() {
 
 generateBtn.addEventListener("click", () => {
     generateColor();
+    window.scrollTo(0, document.body.scrollHeight);
 })
 
 for (let i = 0; i < 3; i++) {

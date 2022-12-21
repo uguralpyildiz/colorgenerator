@@ -1,3 +1,8 @@
+
+html{
+    scroll-behavior: smooth;
+}
+
 body {
     padding: 0;
     margin: 0;
@@ -20,7 +25,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
+    height: 65px;
     max-width: 1200px;
     margin: auto;
 }
@@ -40,13 +45,17 @@ nav {
 
 .github-logo {
     height: 40px;
-    width: 40px;
+    width: 60px;
     background: #00000030;
     text-align: center;
     line-height: 40px;
     border-radius: 5px;
 }
-
+.create-c, .create-c > .color-container{
+    position: sticky;
+    top: 45px;
+    z-index: 888;
+}
 .color-palette-container {
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
@@ -270,7 +279,71 @@ nav {
 .settings-container {
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-top: 20px;
+    justify-content: space-between;
+    margin: 30px auto;
     gap: 15px;
+    width: 70%;
+}
+
+.switch{
+    position: relative;
+    display: flex;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider-container{
+    text-align: center;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50px;
+}
+.slider::before{
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background: #fff;
+    transition: .4s ease;
+    border-radius: 50%;
+}
+
+input:checked + .redc{
+    background: #f32323;
+}
+input:checked + .bluec{
+    background: #2349f3;
+}
+input:checked + .greenc{
+    background: #4df323;
+}
+input:checked + .dark{
+    background: #424242;
+}
+
+
+input:checked + .slider::before{
+    transform: translateX(100%);
+}
+
+.alt{
+    margin: 10px 0;
 }
