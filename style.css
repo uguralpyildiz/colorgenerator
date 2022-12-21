@@ -24,7 +24,7 @@ nav {
 .navbar {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     height: 65px;
     max-width: 1200px;
     margin: auto;
@@ -43,17 +43,9 @@ nav {
     margin: 5px;
 }
 
-.github-logo {
-    height: 40px;
-    width: 60px;
-    background: #00000030;
-    text-align: center;
-    line-height: 40px;
-    border-radius: 5px;
-}
 .create-c, .create-c > .color-container{
     position: sticky;
-    top: 45px;
+    top: 70px;
     z-index: 888;
 }
 .color-palette-container {
@@ -64,28 +56,37 @@ nav {
 }
 
 .create-c {
+    position: fixed;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 85%;
+    background: rgba(228, 228, 228, 0.562);
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #353535;
+}
+
+.create-c-plus,.github-logo {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgb(255, 253, 243);
-    cursor: pointer;
-}
-
-.create-c-plus {
-    font-size: 48px;
-    box-shadow: 0 0 5px #00000020;
-    color: #353535;
+    font-size: 24px;
+    box-shadow: 0 0 15px #00000020;
+    color: #000;
+    background: #fff;
     width: 70px;
     height: 70px;
-    line-height: 70px;
-    text-align: center;
+    margin: 20px;
     border-radius: 50%;
     transform: scale(1);
     transition: .3s ease all;
 }
 
-.create-c:hover .create-c-plus {
-    transform: scale(1.1);
+.create-c-plus:active, .github-logo:active {
+    transform: scale(0.8);
 }
 
 .color-container {
@@ -107,31 +108,33 @@ nav {
     cursor: pointer;
 }
 
+
+
 .color:nth-child(1) {
-    animation: fadecolor .3s ease-in-out;
+    animation: fadecolor .3s cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
 .color:nth-child(2) {
-    animation: fadecolor .5s ease-in-out;
+    animation: fadecolor .5s cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
 .color:nth-child(3) {
-    animation: fadecolor .7s ease-in-out;
+    animation: fadecolor .7s cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
 .color:nth-child(4) {
-    animation: fadecolor .9s ease-in-out;
+    animation: fadecolor .9s cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
 @keyframes fadecolor {
     from {
         opacity: 0;
+        height: 35%;
     }
 
     to {
         opacity: 1;
-        transform: scale(1);
-        top: 0;
+        height: 25%;
     }
 }
 
@@ -220,9 +223,7 @@ nav {
 }
 
 .close {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: inline-block;
     color: #fff;
     font-size: 22px;
     width: 50px;
@@ -231,7 +232,10 @@ nav {
     background: #3061a1;
     border-radius: 50%;
     cursor: pointer;
+    text-align: center !important;
+    line-height: 50px !important;
 }
+
 
 .animation-fade {
 
