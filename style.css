@@ -1,37 +1,36 @@
-
-body{
+body {
     padding: 0;
-    margin: 0 ;
+    margin: 0;
     font-family: consolas;
     background-color: #ffffff;
-        opacity: 1;
-        background-image: radial-gradient(#cdcdcd 1.2000000000000002px, #ffffff 1.2000000000000002px);
-        background-size: 24px 24px;
+    opacity: 1;
+    background-image: radial-gradient(#cdcdcd 1.2000000000000002px, #ffffff 1.2000000000000002px);
+    background-size: 24px 24px;
 }
 
-nav{
+nav {
     position: sticky;
     top: 0;
     background: #3c3c3c;
     box-shadow: 0 0 15px #00000050;
-    z-index: 9999;
+    z-index: 999;
 }
 
-.navbar{
+.navbar {
     display: flex;
-    align-items:center;
+    align-items: center;
     justify-content: space-between;
     padding: 10px;
     max-width: 1200px;
     margin: auto;
 }
 
-.container{
+.container {
     max-width: 1200px;
     margin: auto;
 }
 
-.nav-links{
+.nav-links {
     font-size: 26px;
     font-weight: 600;
     font-family: cursive;
@@ -39,7 +38,7 @@ nav{
     margin: 5px;
 }
 
-.github-logo{
+.github-logo {
     height: 40px;
     width: 40px;
     background: #00000030;
@@ -48,22 +47,22 @@ nav{
     border-radius: 5px;
 }
 
-.color-palette-container{
+.color-palette-container {
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
     width: 100%;
     margin-top: 20px;
 }
 
-.create-c{
+.create-c {
     display: flex;
     align-items: center;
     justify-content: center;
-    background:rgb(255, 253, 243);
+    background: rgb(255, 253, 243);
     cursor: pointer;
 }
 
-.create-c-plus{
+.create-c-plus {
     font-size: 48px;
     box-shadow: 0 0 5px #00000020;
     color: #353535;
@@ -76,37 +75,59 @@ nav{
     transition: .3s ease all;
 }
 
-.create-c:hover .create-c-plus{
+.create-c:hover .create-c-plus {
     transform: scale(1.1);
 }
 
-.color-container{
+.color-container {
     /* width: 270px; */
-    margin:30px;
+    margin: 30px;
     height: 250px;
     box-shadow: 0 0 30px #00000050;
     border-radius: 8px;
     overflow: hidden;
 }
 
-.color{
+.color {
+    position: relative;
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
     overflow: hidden;
+    height: 25%;
     cursor: pointer;
 }
-.color:nth-child(1){
-    height: 35%;
-}
-.color:nth-child(2){
-    height: 25%;
-}
-.color:nth-child(3),.color:nth-child(4){
-    height: 20%;
+
+.color:nth-child(1) {
+    animation: fadecolor .3s ease-in-out;
 }
 
-.color-text{
+.color:nth-child(2) {
+    animation: fadecolor .5s ease-in-out;
+}
+
+.color:nth-child(3) {
+    animation: fadecolor .7s ease-in-out;
+}
+
+.color:nth-child(4) {
+    animation: fadecolor .9s ease-in-out;
+}
+
+@keyframes fadecolor {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+        top: 0;
+    }
+}
+
+
+.color-text {
     position: relative;
     font-size: 18px;
     background: #0000005e;
@@ -119,7 +140,7 @@ nav{
     overflow: hidden;
 }
 
-.color-text::before{
+.color-text::before {
     content: "Copied!";
     display: flex;
     align-items: center;
@@ -132,34 +153,40 @@ nav{
     background: rgb(0, 0, 0);
     z-index: 1;
     opacity: 0;
+    transition: .2s ease;
 }
 
-.copied .color-text::before{
+.copied .color-text::before {
     opacity: 1;
 }
 
-.color:hover .color-text{
+.color:hover .color-text {
     transform: scale(1);
 }
-.create-modal-overlay{
+
+.create-modal-overlay {
     display: none;
     position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: #000000a2;
+    background: #000000b5;
     transition: .2s ease all;
+    ;
+    z-index: 9999;
 }
-.fxed{
+
+.fxed {
     position: fixed;
     top: 0;
 }
-.create-color-modal{
+
+.create-color-modal {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     width: 700px;
     height: 400px;
     background: #ffffff;
@@ -169,7 +196,7 @@ nav{
     transition: .2s ease all;
 }
 
-.create-color-modal-nav{
+.create-color-modal-nav {
     background: #f1f1f1;
     width: 100%;
     display: flex;
@@ -178,12 +205,12 @@ nav{
     border-bottom: 1px solid #ccc;
 }
 
-.m-text{
+.m-text {
     font-size: 18px;
     padding: 5px 20px;
 }
 
-.close{
+.close {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -197,22 +224,23 @@ nav{
     cursor: pointer;
 }
 
-.animation-fade{
+.animation-fade {
 
     animation: fade .4s ease;
 }
 
 @keyframes fade {
-    from{
+    from {
         top: 45%;
         opacity: 0.50;
     }
-    to{
+
+    to {
         opacity: 1;
     }
 }
 
-.btn-container{
+.btn-container {
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -220,25 +248,26 @@ nav{
     margin: auto;
     height: 300px;
 }
-.generate-btn{
+
+.generate-btn {
     padding: 8px 25px;
     background: #353535;
     color: #fff;
     width: 140px;
-    margin-left:auto;
+    margin-left: auto;
     margin-right: 20px;
     text-align: center;
     cursor: pointer;
 }
 
-.generate-container{
+.generate-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 80%;
 }
 
-.settings-container{
+.settings-container {
     display: flex;
     align-items: center;
     justify-content: center;
