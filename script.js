@@ -29,8 +29,7 @@ const colorBContainer = document.querySelector(".color-palette-container")
 
 function generateColor() {
     
-    const colorText = document.querySelectorAll(".color")
-    const colorRText = document.querySelectorAll(".color-text")
+
     
 
 
@@ -56,20 +55,25 @@ function generateColor() {
                     <div class="color-text">#${colors3}</div>
                 </div>
     `
+        copyclipboard()
+    }
+
+    function copyclipboard() {
+        const colorText = document.querySelectorAll(".color")
+        const colorRText = document.querySelectorAll(".color-text")
+        for (let i = 0; i < colorText.length; i++) {
+            colorText[i].addEventListener("click", () => {
+                navigator.clipboard.writeText(colorRText[i].textContent);
+                colorText[i].classList.add("copied")
+                setTimeout(() => {
+                    colorText[i].classList.remove("copied")
+                }, 1000);
+            })
+        }
     }
     index()
     colorBContainer.appendChild(nodeContainer)
-    for (let i = 0; i < colorText.length; i++) {
-        colorText[i].addEventListener("click", () => {
-            navigator.clipboard.writeText(colorRText[i].textContent);
-            colorText[i].classList.add("copied")
-            setTimeout(() => {
-                colorText[i].classList.remove("copied")
-            }, 1000);
-        })
-    }
-
-
+    copyclipboard()
     closeModal()
     var reloadBtn = document.querySelector(".github-logo")
 

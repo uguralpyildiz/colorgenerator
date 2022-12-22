@@ -128,7 +128,7 @@ nav {
 
 @keyframes fadecolor {
     from {
-        opacity: 0;
+        opacity: 0.70;
         height: 35%;
     }
 
