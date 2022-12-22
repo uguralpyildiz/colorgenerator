@@ -75,7 +75,7 @@ function generateColor() {
     colorBContainer.appendChild(nodeContainer)
     copyclipboard()
     closeModal()
-    var reloadBtn = document.querySelector(".github-logo")
+    var reloadBtn = document.querySelector(".reload-btn")
 
     reloadBtn.addEventListener("click", () => {
             index()
