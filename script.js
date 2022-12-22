@@ -37,22 +37,23 @@ function generateColor() {
     nodeContainer.setAttribute("class", "color-container")
 
     function index() {
-        var colors0 = (Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');
-        var colors1 = (Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');
-        var colors2 = (Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');
-        var colors3 = (Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');
+        var colors = []
+        for (let i = 0; i < 4; i++) {          
+            colors[i] = (Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');         
+        }
+
         nodeContainer.innerHTML = `
-                <div style="background: #${colors0};" class="color">
-                    <div class="color-text">#${colors0}</div>
+                <div style="background: #${colors[0]};" class="color">
+                    <div class="color-text">#${colors[0]}</div>
                 </div>
-                <div style="background:  #${colors1};" class="color">
-                    <div class="color-text">#${colors1}</div>
+                <div style="background:  #${colors[1]};" class="color">
+                    <div class="color-text">#${colors[1]}</div>
                 </div>
-                <div style="background:  #${colors2};" class="color">
-                    <div class="color-text">#${colors2}</div>
+                <div style="background:  #${colors[2]};" class="color">
+                    <div class="color-text">#${colors[2]}</div>
                 </div>
-                <div style="background:  #${colors3};" class="color">
-                    <div class="color-text">#${colors3}</div>
+                <div style="background:  #${colors[3]};" class="color">
+                    <div class="color-text">#${colors[3]}</div>
                 </div>
     `
         copyclipboard()
