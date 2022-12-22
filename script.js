@@ -3,7 +3,6 @@ const createColor = document.querySelector(".create-c-plus")
 const close = document.querySelector(".close")
 const modalOrg = document.querySelector(".create-color-modal")
 
-
 createColor.addEventListener("click", () => {
     modalOverlay.style.display = "block"
 })
@@ -26,21 +25,36 @@ document.addEventListener("mousedown", (e) => {
 
 const generateBtn = document.querySelector(".generate-btn")
 const colorBContainer = document.querySelector(".color-palette-container")
-
+const red = document.querySelector(".red")
+const gren = document.querySelector(".gren")
+const ble = document.querySelector(".ble")
+const drk = document.querySelector(".drk")
 function generateColor() {
-    
-
-    
-
-
     const nodeContainer = document.createElement("div")
     nodeContainer.setAttribute("class", "color-container")
 
     function index() {
         var colors = []
-        for (let i = 0; i < 4; i++) {          
-            colors[i] = (Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');         
+        for (let i = 0; i < 4; i++) {
+            colors[i] = (Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');
+
+            
+            if (!red.checked) {
+                colors[i] = colors[i].replace(colors[i].substring(0, 2), "00")
+            }
+            if (!gren.checked) {
+                colors[i] = colors[i].replace(colors[i].substring(2, 4), "00")
+            }
+            if (!ble.checked) {
+                colors[i] = colors[i].replace(colors[i].substring(4, 6), "00")
+            }
+            // if (!drk.checked) {
+            //     colors[i] = colors[i].replace(colors[i].substring(5, 6), "f")
+            // }else{
+            //     colors[i] = colors[i].replace(colors[i].substring(5, ), "0")
+            // }
         }
+        
 
         nodeContainer.innerHTML = `
                 <div style="background: #${colors[0]};" class="color">
@@ -55,7 +69,7 @@ function generateColor() {
                 <div style="background:  #${colors[3]};" class="color">
                     <div class="color-text">#${colors[3]}</div>
                 </div>
-    `
+    `         
         copyclipboard()
     }
 
@@ -79,19 +93,21 @@ function generateColor() {
     var reloadBtn = document.querySelector(".reload-btn")
 
     reloadBtn.addEventListener("click", () => {
-            index()
+        index()
     })
 
 }
 
 
-
 generateBtn.addEventListener("click", () => {
+
     generateColor();
     window.scrollTo(0, document.body.scrollHeight);
 })
 
-for (let i = 0; i < 16; i++) {
+
+
+for (let i = 0; i < 10; i++) {
     generateColor();
 }
 
