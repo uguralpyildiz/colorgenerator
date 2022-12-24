@@ -28,7 +28,6 @@ const colorBContainer = document.querySelector(".color-palette-container")
 const red = document.querySelector(".red")
 const gren = document.querySelector(".gren")
 const ble = document.querySelector(".ble")
-const drk = document.querySelector(".drk")
 function generateColor() {
     const nodeContainer = document.createElement("div")
     nodeContainer.setAttribute("class", "color-container")
@@ -36,23 +35,19 @@ function generateColor() {
     function index() {
         var colors = []
         for (let i = 0; i < 4; i++) {
-            colors[i] = (Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');
+            
+            colors[i] =(Math.random() * 0xffffff << 0).toString(16).padStart(6, '0');
 
             
             if (!red.checked) {
-                colors[i] = colors[i].replace(colors[i].substring(0, 2), "00")
+                colors[i] = colors[i].replace(colors[i].slice(0, 2), "0f")
             }
             if (!gren.checked) {
-                colors[i] = colors[i].replace(colors[i].substring(2, 4), "00")
+                colors[i] = colors[i].replace(colors[i].slice(2, 4), "0f")
             }
             if (!ble.checked) {
-                colors[i] = colors[i].replace(colors[i].substring(4, 6), "00")
+                colors[i] = colors[i].replace(colors[i].slice(4, 6), "0f")
             }
-            // if (!drk.checked) {
-            //     colors[i] = colors[i].replace(colors[i].substring(5, 6), "f")
-            // }else{
-            //     colors[i] = colors[i].replace(colors[i].substring(5, ), "0")
-            // }
         }
         
 
