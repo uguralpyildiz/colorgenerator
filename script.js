@@ -31,38 +31,49 @@ const ble = document.querySelector(".ble")
 function generateColor() {
     const nodeContainer = document.createElement("div")
     nodeContainer.setAttribute("class", "color-container")
-
-    function index() {
+    
+    function index() {      
         var colors = []
         for (let i = 0; i < 4; i++) {
-            
-            colors[i] =(Math.random() * 0xffffff << 0).toString(16).padStart(6, '0');
 
-            
+            let hexColor = "#";
+            for (let i = 0; i < 6; i++) {
+                hexColor += Math.floor(Math.random() * 16).toString(16);
+            }           
+            const redV = hexColor.substring(1, 3);
+            const greenV = hexColor.substring(3, 5);
+            const blueV = hexColor.substring(5, 7);
+
+         
             if (!red.checked) {
-                colors[i] = colors[i].replace(colors[i].slice(0, 2), "0f")
+                hexColor = hexColor.replace(redV, "00")
+       
             }
             if (!gren.checked) {
-                colors[i] = colors[i].replace(colors[i].slice(2, 4), "0f")
+                hexColor = hexColor.replace(greenV, "00")
+       
             }
             if (!ble.checked) {
-                colors[i] = colors[i].replace(colors[i].slice(4, 6), "0f")
+                hexColor = hexColor.replace(blueV, "00")
+          
             }
+
+            colors[i] = hexColor;
         }
         
 
         nodeContainer.innerHTML = `
-                <div style="background: #${colors[0]};" class="color">
-                    <div class="color-text">#${colors[0]}</div>
+                <div style="background: ${colors[0]};" class="color">
+                    <div class="color-text">${colors[0]}</div>
                 </div>
-                <div style="background:  #${colors[1]};" class="color">
-                    <div class="color-text">#${colors[1]}</div>
+                <div style="background:  ${colors[1]};" class="color">
+                    <div class="color-text">${colors[1]}</div>
                 </div>
-                <div style="background:  #${colors[2]};" class="color">
-                    <div class="color-text">#${colors[2]}</div>
+                <div style="background:  ${colors[2]};" class="color">
+                    <div class="color-text">${colors[2]}</div>
                 </div>
-                <div style="background:  #${colors[3]};" class="color">
-                    <div class="color-text">#${colors[3]}</div>
+                <div style="background:  ${colors[3]};" class="color">
+                    <div class="color-text">${colors[3]}</div>
                 </div>
     `         
         copyclipboard()
@@ -81,8 +92,9 @@ function generateColor() {
             })
         }
     }
-    index()
+
     colorBContainer.appendChild(nodeContainer)
+    index()
     copyclipboard()
     closeModal()
     var reloadBtn = document.querySelector(".reload-btn")
